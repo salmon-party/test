@@ -1,0 +1,45 @@
+.main {
+  padding: 30px;
+}
+
+.classification {
+  background-color: yellowgreen;
+  padding: 15px;
+}
+
+.classification>button {
+  margin: 0 10px;
+}
+
+.store {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(255, 227, 134);
+}
+
+.storePart {
+  width: 250px;
+  height: 150px;
+  margin: 15px 0;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.priceGraph {
+  padding: 15px 10px;
+  background-color: rgb(134, 140, 255);
+}
+
+.weatherGraph {
+  padding: 15px 10px;
+  background-color: rgb(255, 134, 227);
+}
+
+.graphTitle {
+  margin-bottom: 10px;
+}
+
+.graphPart {
+  background-color: aliceblue;
+  border-radius: 20px;
+}
