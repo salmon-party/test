@@ -4,41 +4,29 @@ import { ResponsiveLine } from '@nivo/line';
 import data from "./data.json";
 
 const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
-      id
-      name
-      description
-      photo
-    }
+  query {
+    hello
   }
 `;
 
-function DisplayLocations() {
+function DisplayHello() {
   const { loading, error, data } = useQuery(GET_LOCATIONS);
 
   if (loading) return <p>Loading...</p>;
   if (error) {
-    console.log(error);
     return (
       <p>Error</p>)
   }
 
-  return data.locations.map(({ id, name, description, photo }) => (
-    <div key={id}>
-      <h3>{name}</h3>
-      <img width="400" height="250" alt="location-reference" src={`${photo}`} />
-      <br />
-      <b>About this location:</b>
-      <p>{description}</p>
-      <br />
-    </div>
-  ));
+  return (
+    <div>{JSON.stringify(data)}</div>
+  )
 }
 
 function App() {
   return (
     <div className={styles.main}>
+      <DisplayHello />
       <div className={styles.classification}>
         <button>연어</button>
         <button>감자</button>
@@ -193,7 +181,6 @@ function App() {
           </div>
         </div>
       </section>
-      <DisplayLocations />
     </div>
 
   );
