@@ -1,34 +1,18 @@
-import { ApolloClient, createHttpLink, gql, InMemoryCache } from "@apollo/client";
-
-const link = createHttpLink({
-    uri: 'http://localhost:8080/api/graphql',
-    credentials: true,
-    withCredentials: true,
-    //"Content-Type": `application/json`,
-    //"Access-Control-Allow-Origin": `http://localhost:3000`,
-});
-
+import { ApolloClient, HttpLink, gql, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-    //uri: 'http://localhost:8080/api/graphql',
+    uri: '/api/graphql',
     cache: new InMemoryCache(),
-    // ApolloLink: {
-    //     mode: 'no-cors',
-    // },
-    link
 });
 
 client
     .query({
         query: gql`
-        {
-            stat {
-                id
-                color
+            {
+                hello
             }
-        }
-    `,
+        `
     })
-    .then((result) => console.log(result));
+    .then((result) => console.log("result", result));
 
 export default client;
